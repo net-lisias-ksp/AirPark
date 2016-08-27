@@ -82,12 +82,14 @@ namespace AirPark
 			}
 			if (Parked)
 			{
-				vessel.SetWorldVelocity(zeroVector);
-				vessel.acceleration = zeroVector;
+                vessel.SetPosition(ParkPosition);
+                vessel.SetWorldVelocity(zeroVector);
+                vessel.acceleration = zeroVector;
 				vessel.angularVelocity = zeroVector;
 				vessel.geeForce = 0.0;
 				vessel.situation = Vessel.Situations.LANDED;
 				vessel.Landed = true;
+                
 			}
 		}
 
