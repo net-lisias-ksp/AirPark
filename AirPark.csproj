@@ -58,8 +58,10 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>
-    </PostBuildEvent>
+    <PostBuildEvent>"C:\Games\Tools\pdb2mdb\pdb2mdb.exe" "$(TargetFileName)"
+xcopy /Y "$(TargetPath)" "C:\Games\KSP\GameData\AirPark\Plugins\"
+xcopy /Y "$(TargetDir)$(TargetName).pdb" "C:\Games\KSP\GameData\AirPark\Plugins\"
+xcopy /Y "$(TargetDir)$(TargetName).dll.mdb" "C:\Games\KSP\GameData\AirPark\Plugins\"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
