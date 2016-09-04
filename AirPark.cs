@@ -7,7 +7,7 @@ namespace AirPark
     {
 		[KSPField(isPersistant = true, guiActive = true, guiName = "AirParked")]
 		Boolean Parked;
-		[KSPField(isPersistant = true, guiActive = true, guiName = "AutoPark")]
+		[KSPField(isPersistant = true, guiActive = true, guiName = "Auto UnPark")]
 		Boolean autoPark;
 		[KSPField(isPersistant = true, guiActive = false)]
 		Vector3 ParkPosition = new Vector3(0f, 0f, 0f);
@@ -38,7 +38,7 @@ namespace AirPark
             }
         }
 
-        [KSPEvent(guiActive = true, guiName = "Toggle AutoPark")] //auto park on will awake the vessel and set Parked = false if closer than 1.5 KM and inactive
+        [KSPEvent(guiActive = true, guiName = "Toggle Auto UnPark")] //auto park on will awake the vessel and set Parked = false if closer than 1.5 KM and inactive
         public void ToggleAutoPark()
         {
             autoPark = !autoPark;
@@ -116,6 +116,7 @@ namespace AirPark
         private void RestoreVesselState()
         {
             vessel.situation = previousState;
+            if (vessel.situation != Vessel.Situations.LANDED) { vessel.Landed = false; }
             //setVesselStill();
         }
 		private void ParkVessel()
