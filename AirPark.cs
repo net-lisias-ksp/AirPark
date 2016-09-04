@@ -31,45 +31,43 @@ namespace AirPark
                 }
                 else
                 {
-                    vessel.situation = previousState;
+                   RestoreVesselState();
                 }
                 Parked = !Parked;
+                
             }
         }
 
-        [KSPEvent(guiActive = true, guiName = "Toggle AutoPark")]
+        [KSPEvent(guiActive = true, guiName = "Toggle AutoPark")] //auto park on will awake the vessel and set Parked = false if closer than 1.5 KM and inactive
         public void ToggleAutoPark()
         {
             autoPark = !autoPark;
-        }
-
-        private void InitBaseState()
-        {
-            if (vessel != null)
-            {
-                ParkPosition = vessel.GetWorldPos3D();
-                part.force_activate();
-                RememberPreviousState();
-            }
         }
 
 		public override void OnStart(StartState state)
 		{
 			if (state != StartState.Editor)
 			{
-				InitBaseState();
+                if (vessel != null)
+                {
+                    ParkPosition = vessel.GetWorldPos3D();
+                    part.force_activate();
+                    RememberPreviousState();
+                }
 			}
 		}
 
         public override void OnFixedUpdate()
         {
-            // can't Park if we're orbiting
+            #region can't Park if we're orbiting
             if (vessel.situation == Vessel.Situations.SUB_ORBITAL || vessel.situation == Vessel.Situations.ORBITING)
             {
                 autoPark = false;
                 Parked = false;
             }
-            // if we're inactive, see if we want to Park 
+            #endregion
+
+            #region If we are the Inactive Vessel, See if we want to Park
             if (!vessel.isActiveVessel && autoPark)
             {
                 ParkPosition = vessel.GetWorldPos3D();
@@ -78,8 +76,9 @@ namespace AirPark
                 {
                     Parked = false;
                     vessel.GoOffRails();
-                    vessel.Landed = false;
                     vessel.situation = previousState;
+                    //vessel.Landed = false;
+                    //RememberPreviousState();
                     setVesselStill();
                 }
                 // if we're farther than 2km, auto Park if needed
@@ -89,40 +88,45 @@ namespace AirPark
                     ParkVessel();
                 }
             }
-            // if we're not Parked, and not active and flying, then go off rails
+            #endregion
+            
+            #region if we're not Parked, and not active and flying, then go off rails
             if (!Parked & !vessel.isActiveVessel & vessel.situation == Vessel.Situations.FLYING)
             {
                 vessel.GoOffRails();
             }
-
+            #endregion
+            //This is where parking seems to take place
+            
             if (Parked)
             {
-                vessel.SetPosition(ParkPosition);
-                setVesselStill();
-                vessel.situation = Vessel.Situations.LANDED;
-                vessel.Landed = true;
+                ParkVessel();
             }
+
         }
 
 		private void RememberPreviousState()
 		{
-            
-            if (previousState != Vessel.Situations.LANDED)
+            if (!Parked & vessel.situation != Vessel.Situations.LANDED)
 			{
-				//don't overwrite the previous state                                
-			}
-			else
-			{
-				previousState = vessel.situation;
-			}
+                previousState = vessel.situation;                           
+			}	        
 		}
-        
+
+        private void RestoreVesselState()
+        {
+            vessel.situation = previousState;
+            //setVesselStill();
+        }
 		private void ParkVessel()
 		{
             RememberPreviousState();
 			ParkPosition = vessel.GetWorldPos3D();
 			ParkVelocity = vessel.GetSrfVelocity();
             setVesselStill();
+            vessel.SetPosition(ParkPosition);
+            vessel.situation = Vessel.Situations.LANDED;
+            vessel.Landed = true;
     			
 		}
         private void setVesselStill()
