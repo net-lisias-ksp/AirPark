@@ -76,10 +76,12 @@ namespace AirPark
                 {
                     Parked = false;
                     vessel.GoOffRails();
-                    vessel.situation = previousState;
+                    RestoreVesselState();
+
+                    //vessel.situation = previousState;
                     //vessel.Landed = false;
                     //RememberPreviousState();
-                    setVesselStill();
+                    //setVesselStill();
                 }
                 // if we're farther than 2km, auto Park if needed
                 if ((vessel.GetWorldPos3D() - FlightGlobals.ActiveVessel.GetWorldPos3D()).magnitude > 2000.0f && (!Parked))
@@ -96,8 +98,8 @@ namespace AirPark
                 vessel.GoOffRails();
             }
             #endregion
+
             //This is where parking seems to take place
-            
             if (Parked)
             {
                 ParkVessel();
@@ -117,15 +119,20 @@ namespace AirPark
         {
             vessel.situation = previousState;
             if (vessel.situation != Vessel.Situations.LANDED) { vessel.Landed = false; }
-            //setVesselStill();
+            setVesselStill();
         }
 		private void ParkVessel()
 		{
+            if (vessel.situation == Vessel.Situations.LANDED) { return; } //do not park if already parked, should keep from moving slightly on every frame update
+           
             RememberPreviousState();
+
 			ParkPosition = vessel.GetWorldPos3D();
 			ParkVelocity = vessel.GetSrfVelocity();
+
             setVesselStill();
             vessel.SetPosition(ParkPosition);
+
             vessel.situation = Vessel.Situations.LANDED;
             vessel.Landed = true;
     			
