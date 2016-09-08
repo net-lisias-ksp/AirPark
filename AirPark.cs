@@ -15,10 +15,11 @@ namespace AirPark
 		Vector3 ParkVelocity = new Vector3(0f, 0f, 0f);
         [KSPField(isPersistant = true, guiActive = false)]
         Vessel.Situations previousState;
+        [KSPField(isPersistant = true, guiActive = false)]
+        public bool isActive = false; //have you ever clicked "AirParked"? Rember to keep interesting things from happening
 
 		private static Vector3 zeroVector = new Vector3(0f, 0f, 0f);
-        public bool wasSplashed;
-
+        
         [KSPEvent(guiActive = true, guiName = "Toggle Park")]
         public void TogglePark()
         {
@@ -34,7 +35,8 @@ namespace AirPark
                 {
                    RestoreVesselState();
                 }
-                //Parked = !Parked;                
+                //Parked = !Parked;
+                isActive = true;
             }
         }
 
@@ -120,9 +122,9 @@ namespace AirPark
 
         private void RestoreVesselState()
         {
+            if (!isActive) { return; } //we only want to restore the state if you have parked somewhere intentionally
             vessel.situation = previousState;
             if (vessel.situation != Vessel.Situations.LANDED) { vessel.Landed = false; }
-            
             setVesselStill();
             vessel.SetPosition(ParkPosition);
             if (Parked) { Parked = false; }
