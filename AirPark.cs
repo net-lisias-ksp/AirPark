@@ -27,6 +27,7 @@ namespace AirPark
             {
                 if (!Parked)
                 {
+                    ParkPosition = vessel.GetWorldPos3D();
                     ParkVessel();
                 }
                 else
@@ -54,6 +55,12 @@ namespace AirPark
                 }
 			}
 		}
+        public override void OnSave(ConfigNode node)
+        {
+            base.OnSave(node);
+            if (vessel != null) { ParkPosition = vessel.GetWorldPos3D(); }
+            
+        }
 
         public override void OnFixedUpdate()
         {
@@ -68,7 +75,7 @@ namespace AirPark
             #region If we are the Inactive Vessel, See if we want to Park
             if (!vessel.isActiveVessel && autoPark)
             {
-                ParkPosition = vessel.GetWorldPos3D();
+                //ParkPosition = vessel.GetWorldPos3D();
                 // if we're less than 1.5km from the active vessel and Parked, then wake up
                 if ((vessel.GetWorldPos3D() - FlightGlobals.ActiveVessel.GetWorldPos3D()).magnitude < 1500.0f && Parked)
                 {
@@ -107,7 +114,7 @@ namespace AirPark
 			{
                 previousState = vessel.situation;                           
 			}
-            ParkPosition = vessel.GetWorldPos3D();
+            
             ParkVelocity = vessel.GetSrfVelocity();
 		}
 
@@ -115,7 +122,8 @@ namespace AirPark
         {
             vessel.situation = previousState;
             if (vessel.situation != Vessel.Situations.LANDED) { vessel.Landed = false; }
-             setVesselStill();
+            
+            setVesselStill();
             vessel.SetPosition(ParkPosition);
             if (Parked) { Parked = false; }
         }
@@ -139,7 +147,8 @@ namespace AirPark
             vessel.acceleration = zeroVector;
             vessel.angularVelocity = zeroVector;
             vessel.geeForce = 0.0;
-            vessel.SetPosition(ParkPosition);
+
+            if (ParkPosition != null) { vessel.SetPosition(ParkPosition); }
         }
 	}
 }
