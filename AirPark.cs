@@ -3,8 +3,8 @@ using UnityEngine;
 
 namespace AirPark
 {
-    public class AirPark : PartModule
-    {
+        public class AirPark : PartModule
+        {
 		[KSPField(isPersistant = true, guiActive = true, guiName = "AirParked")]
 		Boolean Parked;
 		[KSPField(isPersistant = true, guiActive = true, guiName = "Auto UnPark")]
@@ -12,15 +12,16 @@ namespace AirPark
 		
         //Velocity and Postion
         [KSPField(isPersistant = true, guiActive = false)]
-		Vector3 ParkPosition = new Vector3(0f, 0f, 0f);
-		[KSPField(isPersistant = true, guiActive = false)]
+        //private Vector3 ParkPosition = new Vector3(0f, 0f, 0f);
+        private Vector3 ParkPosition;
+		
+        [KSPField(isPersistant = true, guiActive = false)]
 		Vector3 ParkVelocity = new Vector3(0f, 0f, 0f);
         private static Vector3 zeroVector = new Vector3(0f, 0f, 0f);
-
         [KSPField(isPersistant = true, guiActive = false)]
-        Vector3 ParkAcceleration = new Vector3(0f, 0f, 0f);
+        private Vector3 ParkAcceleration = new Vector3(0f, 0f, 0f);
         [KSPField(isPersistant = true, guiActive = false)]
-        Vector3 ParkAngularVelocity = new Vector3(0f, 0f, 0f);
+        private Vector3 ParkAngularVelocity = new Vector3(0f, 0f, 0f);
 
         //Vessel State
         [KSPField(isPersistant = true, guiActive = true)] //flip to false guiactive on release
@@ -49,7 +50,7 @@ namespace AirPark
                 if (!Parked)
                 {
                     //ParkPosition = vessel.GetWorldPos3D();
-                    ParkPosition = vessel.transform.position;
+                    ParkPosition = vessel.transform.position;                    
 
                     //we only want to remember the initial velocity, not subseqent updates by onFixedUpdate()
                     //ParkVelocity = vessel.GetSrfVelocity(); 
@@ -80,6 +81,7 @@ namespace AirPark
                 {                    
                     part.force_activate();
                     //RememberPreviousState();
+                    ParkPosition = vessel.transform.position;
                 }
 			}
 		}
@@ -89,6 +91,9 @@ namespace AirPark
             if (vessel != null ){ 
                 //ParkPosition = vessel.GetWorldPos3D(); 
                 ParkPosition = vessel.transform.position;
+                //ParkVelocity = vessel.GetSrfVelocity(); 
+                //ParkAcceleration = vessel.acceleration;
+                //ParkAngularVelocity = vessel.angularVelocity;   
             }
             
         }
@@ -98,7 +103,10 @@ namespace AirPark
             if (vessel != null)
             {
                 //ParkPosition = vessel.GetWorldPos3D(); 
-                ParkPosition = vessel.transform.position;
+                //ParkPosition = vessel.transform.position;
+                //ParkVelocity = vessel.GetSrfVelocity(); 
+                //ParkAcceleration = vessel.acceleration;
+                //ParkAngularVelocity = vessel.angularVelocity;   
             }
         }
 
@@ -107,7 +115,7 @@ namespace AirPark
             //Set debug values
             vesselSituation = vessel.situation.ToString();
 
-            #region can't Park if we're orbiting
+            #region can't Park if we're orbitingParkPosition
             if (vessel.situation == Vessel.Situations.SUB_ORBITAL || vessel.situation == Vessel.Situations.ORBITING)
             {
                 autoPark = false;
@@ -151,12 +159,10 @@ namespace AirPark
 
 		private void RememberPreviousState()
 		{
-            if (!Parked & vessel.situation != Vessel.Situations.LANDED)
+            if (!Parked & vessel.situation != Vessel.Situations.LANDED) //Keep from Vessel Situation from Sticking to Landed permanently
 			{
                 previousState = vessel.situation;                           
-			}
-            
-            ParkVelocity = vessel.GetSrfVelocity();
+			}       
 		}
 
         private void RestoreVesselState()
