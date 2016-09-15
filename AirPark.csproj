@@ -34,6 +34,13 @@
     <Reference Include="Assembly-CSharp">
       <HintPath>..\..\..\..\..\..\Games\KSP\KSP_Data\Managed\Assembly-CSharp.dll</HintPath>
     </Reference>
+    <Reference Include="Assembly-CSharp-firstpass, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Games\KSP\KSP_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
+    </Reference>
+    <Reference Include="HyperEdit">
+      <HintPath>..\..\..\..\..\..\Games\KSP\GameData\Kerbaltek\HyperEdit.dll</HintPath>
+    </Reference>
     <Reference Include="KSPAssets">
       <HintPath>..\..\..\..\..\..\Games\KSP\KSP_Data\Managed\KSPAssets.dll</HintPath>
     </Reference>
