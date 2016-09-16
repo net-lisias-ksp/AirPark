@@ -227,7 +227,7 @@ namespace AirPark
                 return;
             }
             var alt = pqs.GetSurfaceHeight(QuaternionD.AngleAxis(Longitude, Vector3d.down) * QuaternionD.AngleAxis(Latitude, Vector3d.forward) * Vector3d.right) - pqs.radius;
-            alt = Math.Max(alt, 0); // Underwater!
+            //alt = Math.Max(alt, 0); // No need for underwater check, allow park subs
             Altitude = GetComponent<Vessel>().altitude - alt;
         }
 
