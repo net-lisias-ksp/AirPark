@@ -47,14 +47,6 @@
       <HintPath>..\..\..\..\..\..\Games\KSP\KSP_x64_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Assembly-UnityScript">
-      <HintPath>..\..\..\..\..\..\Games\KSP\KSP_x64_Data\Managed\Assembly-UnityScript.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Assembly-UnityScript-firstpass">
-      <HintPath>..\..\..\..\..\..\Games\KSP\KSP_x64_Data\Managed\Assembly-UnityScript-firstpass.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

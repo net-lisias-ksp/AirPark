@@ -11,8 +11,7 @@ namespace AirPark
     [KSPAddon(KSPAddon.Startup.Flight, false)]
     class AirParkToolbar : MonoBehaviour
     {
-        //public static AirParkPM;
-   
+       
         public static bool hasAddedButton = false;
         public static bool toolbarGuiEnabled = false;
 
@@ -54,13 +53,13 @@ namespace AirPark
 
             if (!FlightGlobals.ActiveVessel) { return; }
 
-            if (!AirParkPM.Parked)
+            if (!AirPark.Parked)
             {
                 if (GUI.Button(LineRect(ref line, 1.5f), "Park Vessel", HighLogic.Skin.button))
                 {
                     //VesselMove.instance.StartMove(FlightGlobals.ActiveVessel, true);
                     if (FlightGlobals.ActiveVessel && !FlightGlobals.ActiveVessel.Landed) //{ AirParkVM.ParkPosition = AirParkVM.GetVesselPostion(); }
-                    AirParkPM.Instance.TogglePark();
+                    AirPark.Instance.TogglePark();
                 }
 
             }
@@ -69,7 +68,7 @@ namespace AirPark
                 if (GUI.Button(LineRect(ref line, 2), "Un-Park", HighLogic.Skin.button))
                 {
                     //if (AirParkVM.Parked) { AirParkVM.RestoreVesselState(); }
-                    AirParkPM.Instance.TogglePark();
+                    AirPark.Instance.TogglePark();
                 }
             }
 
@@ -79,12 +78,12 @@ namespace AirPark
             svRectScreenSpace.x += toolbarRect.x;
             svRectScreenSpace.y += toolbarRect.y;
 
-            if (!AirParkPM.autoPark)
+            if (!AirPark.autoPark)
             {
                 if (GUI.Button(spawnVesselRect, "Auto-Park OFF", HighLogic.Skin.button))
                 {
                     //AirParkPM.autoPark = !AirParkPM.autoPark;
-                    AirParkPM.Instance.ToggleAutoPark();
+                    AirPark.Instance.ToggleAutoPark();
                 }
 
             }
@@ -93,7 +92,7 @@ namespace AirPark
                 if (GUI.Button(spawnVesselRect, "Auto-Park ON", HighLogic.Skin.button))
                 {
                     //AirParkPM.autoPark = !AirParkPM.autoPark;
-                    AirParkPM.Instance.ToggleAutoPark();
+                    AirPark.Instance.ToggleAutoPark();
                 }
 
             }

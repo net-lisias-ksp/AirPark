@@ -3,10 +3,10 @@ using UnityEngine;
 
 namespace AirPark
 {
-    public class AirParkPM : PartModule
+    public class AirPark : PartModule
     {
-        static AirParkPM instance;
-        public static AirParkPM Instance
+        static AirPark instance;
+        public static AirPark Instance
         {
          get
         { return instance;}
@@ -195,6 +195,7 @@ namespace AirPark
             setVesselStill();
 
             //Restore Velocity and Accleration
+            vessel.IgnoreGForces(240);
             vessel.SetWorldVelocity(ParkVelocity);
             vessel.acceleration = ParkAcceleration;
             vessel.angularVelocity = ParkAngularVelocity;
@@ -213,6 +214,7 @@ namespace AirPark
 
         private void setVesselStill()
         {
+            vessel.IgnoreGForces(240);
             vessel.SetWorldVelocity(zeroVector);
             vessel.acceleration = zeroVector;
             vessel.angularVelocity = zeroVector;
@@ -265,6 +267,7 @@ namespace AirPark
 
         private void setVesselPosition()
         {
+            vessel.IgnoreGForces(240);
             vessel.orbitDriver.pos = ParkPosition;
         }
         #endregion
