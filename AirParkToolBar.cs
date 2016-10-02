@@ -30,8 +30,8 @@ namespace AirPark
 
         void Start()
         {
-            toolbarPosition = new Vector2(Screen.width - toolbarWidth - 80, 59);
-            toolbarRect = new Rect(toolbarPosition.x, toolbarPosition.y, toolbarWidth, toolbarHeight);
+            toolbarPosition = new Vector2(Screen.width - toolbarWidth - 60, 39);
+            toolbarRect = new Rect(toolbarPosition.x, toolbarPosition.y + 100, toolbarWidth, toolbarHeight);
             contentWidth = toolbarWidth - (2 * toolbarMargin);
 
             AddToolbarButton();
