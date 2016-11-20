@@ -131,6 +131,7 @@ namespace AirPark
             {
                 autoPark = false;
                 Parked = false;
+                ScreenMessages.PostScreenMessage("Cannot Park While Sub-Orbital or Orbital", 5.0f, ScreenMessageStyle.UPPER_CENTER);
             }
             #endregion
 
@@ -168,7 +169,6 @@ namespace AirPark
             }
 
         }
-
         public void OnDestroy()
         {
             instance = null;       
