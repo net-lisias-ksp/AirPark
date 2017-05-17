@@ -22,11 +22,14 @@ namespace AirPark
         float toolbarLineHeight = 20;
         float contentWidth;
         Vector2 toolbarPosition;
-
         Rect svRectScreenSpace;
-
         //bool showMoveHelp = false;
         float helpHeight;
+
+        void VesselChange(Vessel v)
+        {
+            if (!v.isActiveVessel) return;
+        }
 
         void Start()
         {
@@ -35,11 +38,12 @@ namespace AirPark
             contentWidth = toolbarWidth - (2 * toolbarMargin);
 
             AddToolbarButton();
+
+            GameEvents.onVesselChange.Add(VesselChange);
         }
 
         void OnGUI()
         {
-
             if (toolbarGuiEnabled) //&& AirParkPM.instance)
             {
                 GUI.Window(999666, toolbarRect, ToolbarWindow, "AirPark", HighLogic.Skin.window);
@@ -53,50 +57,53 @@ namespace AirPark
 
             if (!FlightGlobals.ActiveVessel) { return; }
 
-            if (!AirPark.Parked)
+            if (AirPark.Instance)
             {
-                if (GUI.Button(LineRect(ref line, 1.5f), "Park Vessel", HighLogic.Skin.button))
+                if (!AirPark.Parked)
                 {
-                    //VesselMove.instance.StartMove(FlightGlobals.ActiveVessel, true);
-                    if (FlightGlobals.ActiveVessel && !FlightGlobals.ActiveVessel.Landed) //{ AirParkVM.ParkPosition = AirParkVM.GetVesselPostion(); }
-                    AirPark.Instance.TogglePark();
+                    if (GUI.Button(LineRect(ref line, 1.5f), "Park Vessel", HighLogic.Skin.button))
+                    {
+                        if (FlightGlobals.ActiveVessel && !FlightGlobals.ActiveVessel.Landed)
+                            AirPark.Instance.TogglePark();
+                    }
+
+                }
+                else
+                {
+                    if (GUI.Button(LineRect(ref line, 2), "Un-Park", HighLogic.Skin.button))
+                    {
+                        AirPark.Instance.TogglePark();
+                    }
                 }
 
+                line += 0.2f;
+                Rect spawnVesselRect = LineRect(ref line);
+                svRectScreenSpace = new Rect(spawnVesselRect);
+                svRectScreenSpace.x += toolbarRect.x;
+                svRectScreenSpace.y += toolbarRect.y;
+
+                if (!AirPark.autoPark)
+                {
+                    if (GUI.Button(spawnVesselRect, "Auto-Park OFF", HighLogic.Skin.button))
+                    {
+                        AirPark.Instance.ToggleAutoPark();
+                    }
+
+                }
+                else
+                {
+                    if (GUI.Button(spawnVesselRect, "Auto-Park ON", HighLogic.Skin.button))
+                    {
+                        AirPark.Instance.ToggleAutoPark();
+                    }
+
+                }
             }
             else
             {
-                if (GUI.Button(LineRect(ref line, 2), "Un-Park", HighLogic.Skin.button))
-                {
-                    //if (AirParkVM.Parked) { AirParkVM.RestoreVesselState(); }
-                    AirPark.Instance.TogglePark();
-                }
+                GUIStyle centerLabelStyle = new GUIStyle(HighLogic.Skin.label) { alignment = TextAnchor.UpperCenter };
+                GUI.Label(LineRect(ref line), "No AirPark Module Found", centerLabelStyle);
             }
-
-            line += 0.2f;
-            Rect spawnVesselRect = LineRect(ref line);
-            svRectScreenSpace = new Rect(spawnVesselRect);
-            svRectScreenSpace.x += toolbarRect.x;
-            svRectScreenSpace.y += toolbarRect.y;
-
-            if (!AirPark.autoPark)
-            {
-                if (GUI.Button(spawnVesselRect, "Auto-Park OFF", HighLogic.Skin.button))
-                {
-                    //AirParkPM.autoPark = !AirParkPM.autoPark;
-                    AirPark.Instance.ToggleAutoPark();
-                }
-
-            }
-            else
-            {
-                if (GUI.Button(spawnVesselRect, "Auto-Park ON", HighLogic.Skin.button))
-                {
-                    //AirParkPM.autoPark = !AirParkPM.autoPark;
-                    AirPark.Instance.ToggleAutoPark();
-                }
-
-            }
-
 
             toolbarRect.height = (line * toolbarLineHeight) + (toolbarMargin * 2);
         }

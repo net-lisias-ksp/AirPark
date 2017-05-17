@@ -6,11 +6,7 @@ namespace AirPark
     public class AirPark : PartModule
     {
         static AirPark instance;
-        public static AirPark Instance
-        {
-         get
-        { return instance;}
-        }
+        public static AirPark Instance => instance;
 
         #region Fields / Globals
         [KSPField(isPersistant = true, guiActive = true, guiName = "AirParked")]
@@ -55,7 +51,8 @@ namespace AirPark
         [KSPEvent(guiActive = true, guiName = "Toggle Park")]
         public void TogglePark()
         {
-            if (!FlightGlobals.ActiveVessel) { return; }
+            //if (!FlightGlobals.ActiveVessel || !(vessel.id == FlightGlobals.ActiveVessel.id)) { return; }
+            if (!vessel.isActiveVessel) { return; }
             // cannot Park in orbit or sub-orbit
             if (vessel.situation != Vessel.Situations.SUB_ORBITAL && vessel.situation != Vessel.Situations.ORBITING)
             {
@@ -88,15 +85,12 @@ namespace AirPark
         #region GameEvents
         public override void OnStart(StartState state)
         {
-            if (state != StartState.Editor)
+            if (state != StartState.Editor && vessel != null)
             {
-                if (vessel != null)
-                {
-                    part.force_activate();
-                    ParkPosition = vessel.transform.position;
+                part.force_activate();
+                ParkPosition = vessel.transform.position;
 
-                    instance = this;
-                }
+                instance = this;
             }
         }
         public override void OnSave(ConfigNode node)
