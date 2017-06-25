@@ -52,7 +52,9 @@ namespace AirPark
         public void TogglePark()
         {
             //if (!FlightGlobals.ActiveVessel || !(vessel.id == FlightGlobals.ActiveVessel.id)) { return; }
-            if (!vessel.isActiveVessel) { return; }
+            //if (vessel == null || vessel == FlightGlobals.ActiveVessel) { return; }
+            if (vessel == null | !vessel.isActiveVessel) { return; }
+
             // cannot Park in orbit or sub-orbit
             if (vessel.situation != Vessel.Situations.SUB_ORBITAL && vessel.situation != Vessel.Situations.ORBITING)
             {
@@ -117,7 +119,9 @@ namespace AirPark
         }
         public void FixedUpdate()
         {
-            if (vessel == null) { return; }
+            //if (vessel == null || vessel == FlightGlobals.ActiveVessel) { return; }
+            if (vessel == null | !vessel.isActiveVessel) { return; }
+
             vesselSituation = vessel.situation.ToString();
 
             #region can't Park if we're orbitingParkPosition
