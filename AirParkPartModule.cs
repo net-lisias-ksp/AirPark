@@ -49,6 +49,17 @@ namespace AirPark
 
         #region Toggles
         [KSPEvent(guiActive = true, guiName = "Toggle Park")]
+        public void TogglePark_Event(KSPActionParam param)
+        {
+            TogglePark();
+        }
+
+        [KSPAction("Toggle Park")]
+        public void TogglePart_AG(KSPActionParam param)
+        {
+            TogglePark();
+        }
+
         public void TogglePark()
         {
             //if (!FlightGlobals.ActiveVessel || !(vessel.id == FlightGlobals.ActiveVessel.id)) { return; }
@@ -120,7 +131,13 @@ namespace AirPark
         public void FixedUpdate()
         {
             //if (vessel == null || vessel == FlightGlobals.ActiveVessel) { return; }
-            if (vessel == null | !vessel.isActiveVessel) { return; }
+            try
+            {
+                if (vessel == null | !vessel.isActiveVessel) { return; }
+                return;
+            }
+            catch (Exception e)
+            { }
 
             vesselSituation = vessel.situation.ToString();
 

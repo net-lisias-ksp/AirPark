@@ -23,9 +23,7 @@ namespace AirPark
         float contentWidth;
         Vector2 toolbarPosition;
         Rect svRectScreenSpace;
-        //bool showMoveHelp = false;
-        float helpHeight;
-
+        
         void VesselChange(Vessel v)
         {
             if (!v.isActiveVessel) return;
@@ -113,29 +111,6 @@ namespace AirPark
             Rect rect = new Rect(toolbarMargin, toolbarMargin + (currentLine * toolbarLineHeight), contentWidth, toolbarLineHeight * heightFactor);
             currentLine += heightFactor + 0.1f;
             return rect;
-        }
-
-        void MoveHelp(int windowID)
-        {
-            float line = 0;
-            line += 1.25f;
-            LineLabel("Movement: " + GameSettings.PITCH_DOWN.primary.ToString() + " " +
-                GameSettings.PITCH_UP.primary.ToString() + " " +
-                GameSettings.YAW_LEFT.primary.ToString() + " " +
-                GameSettings.YAW_RIGHT.primary.ToString(), ref line);
-            LineLabel("Roll: " + GameSettings.ROLL_LEFT.primary.ToString() + " " +
-                GameSettings.ROLL_RIGHT.primary.ToString(), ref line);
-            LineLabel("Pitch: " + GameSettings.TRANSLATE_DOWN.primary.ToString() + " " +
-                GameSettings.TRANSLATE_UP.primary.ToString(), ref line);
-            LineLabel("Yaw: " + GameSettings.TRANSLATE_LEFT.primary.ToString() + " " +
-                GameSettings.TRANSLATE_RIGHT.primary.ToString(), ref line);
-            LineLabel("Auto rotate rocket: " + GameSettings.TRANSLATE_BACK.primary.ToString(), ref line);
-            LineLabel("Auto rotate plane: " + GameSettings.TRANSLATE_FWD.primary.ToString(), ref line);
-            LineLabel("Change movement speed: Tab", ref line);
-            //line++;
-            //LineLabel("Hotkey: Alt + P", ref line);
-
-            helpHeight = (line * toolbarLineHeight) + (toolbarMargin * 2);
         }
 
         void LineLabel(string label, ref float line)
