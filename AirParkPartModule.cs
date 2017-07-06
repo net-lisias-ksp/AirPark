@@ -49,12 +49,12 @@ namespace AirPark
 
         #region Toggles
         [KSPEvent(guiActive = true, guiName = "Toggle Park")]
-        public void TogglePark_Event(KSPActionParam param)
+        public void TogglePark_Event()
         {
             TogglePark();
         }
 
-        [KSPAction("Toggle Park")]
+        [KSPAction("Toggle Park on/off")]
         public void TogglePart_AG(KSPActionParam param)
         {
             TogglePark();
@@ -131,13 +131,12 @@ namespace AirPark
         public void FixedUpdate()
         {
             //if (vessel == null || vessel == FlightGlobals.ActiveVessel) { return; }
-            try
-            {
-                if (vessel == null | !vessel.isActiveVessel) { return; }
-                return;
-            }
-            catch (Exception e)
-            { }
+            //try
+            //{
+                if (vessel == null | !vessel.isActiveVessel) { return; }                
+            //}
+            //catch (Exception e)
+            //{ }
 
             vesselSituation = vessel.situation.ToString();
 
