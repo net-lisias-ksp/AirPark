@@ -133,7 +133,8 @@ namespace AirPark
             //if (vessel == null || vessel == FlightGlobals.ActiveVessel) { return; }
             //try
             //{
-                if (vessel == null | !vessel.isActiveVessel) { return; }                
+            if (!HighLogic.LoadedSceneIsFlight) { return; }
+            if (vessel == null | !vessel.isActiveVessel) { return; }
             //}
             //catch (Exception e)
             //{ }
