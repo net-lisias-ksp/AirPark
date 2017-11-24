@@ -1,7 +1,7 @@
 ﻿{
     "NAME":"AirPark",
     "URL":"https://github.com/gomker/AirPark/tree/master/Distribution/GameData/AirPark.version",
-    "DOWNLOAD":"https://github.com/Gomker/AirPark/releases/tag/v0.1.6.1
+    "DOWNLOAD":"https://github.com/Gomker/AirPark/releases/tag/v1.6.2
     "GITHUB":
     {
         "USERNAME":"gomker",
@@ -10,10 +10,10 @@
     },
     "VERSION":
     {
-        "MAJOR":0,
-        "MINOR":1,
-        "PATCH":6,
-        "BUILD":1
+        "MAJOR":1,
+        "MINOR":6,
+        "PATCH":2,
+        "BUILD":0
     },
     "KSP_VERSION":
     {
