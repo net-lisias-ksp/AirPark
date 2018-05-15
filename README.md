@@ -3,6 +3,6 @@ KSP Mod to land vessel in atmosphere. Attach the airpark part located under the 
 
 ## DISCLAIMER
 
-This is a **unofficial** fork, for personal use and fix attempts.
+This is an **unofficial** fork, for personal use and fix attempts.
 
 **DO NOT** pesky the current maintainer (see the `forked from` above) for bugs you find using this. :-)
