@@ -1,5 +1,7 @@
 # AirPark :: Change Log
 
+* 2017-0707 0.1.6.1-1 (gomker) for KSP 1.3.0
+	+ Fixing a major glitch I missed 
 * 2017-0706: 0.1.6.1 (gomker) for KSP 1.3.0
 	+ Adding Action group support
 * 2017-0602: 0.1.6.0 (gomker) for KSP 1.3.0
