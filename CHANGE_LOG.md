@@ -1,5 +1,7 @@
 # AirPark :: Change Log
 
+* 2017-0706: 0.1.6.1 (gomker) for KSP 1.3.0
+	+ Adding Action group support
 * 2017-0602: 0.1.6.0 (gomker) for KSP 1.3.0
 	+ Update to 1.3
 	+ Notes : Toolbar is a work in progress a rewrite to a proper Vessel Module in progress.
