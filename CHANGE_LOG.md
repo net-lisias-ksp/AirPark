@@ -1,5 +1,8 @@
 # AirPark :: Change Log
 
+* 2016-1024: 0.1.5.5 (gomker) for KSP 1.2.2
+	+ 1.2 Update
+	+ Tool Bar added - still work in progress and my have some bugs Part is still included for now
 * 2016-0916: 0.1.5.4 (dunclaw?) for KSP 1.1.3
 	+ Fixing vessels jumping around when moving in and out of physics range.
 	+ Parking now uses Lat/Lon/Alt of the celestial body
