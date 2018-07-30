@@ -1,5 +1,7 @@
 # AirPark :: Change Log
 
+* 2016-0908: 0.1.5.2 (dunclaw?) for KSP 1.1.3
+	+ Updates to fix vessel creep,Position set logic updated
 * 2016-0908: 0.1.5.1 (dunclaw?) for KSP 1.1.3
 	+ Refactored some functions for stability. There is still some vessel creep that I am trying to track down.	
 * 2016-0906: 0.1.5 (dunclaw?) for KSP 1.1.3	
