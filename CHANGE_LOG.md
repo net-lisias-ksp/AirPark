@@ -1,5 +1,8 @@
 # AirPark :: Change Log
 
+* 2017-0602: 0.1.6.0 (gomker) for KSP 1.3.0
+	+ Update to 1.3
+	+ Notes : Toolbar is a work in progress a rewrite to a proper Vessel Module in progress.
 * 2016-1024: 0.1.5.5 (gomker) for KSP 1.2.2
 	+ 1.2 Update
 	+ Tool Bar added - still work in progress and my have some bugs Part is still included for now
