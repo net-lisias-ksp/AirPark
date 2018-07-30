@@ -1,5 +1,9 @@
 # AirPark :: Change Log
 
+* 2016-0916: 0.1.5.4 (dunclaw?) for KSP 1.1.3
+	+ Fixing vessels jumping around when moving in and out of physics range.
+	+ Parking now uses Lat/Lon/Alt of the celestial body
+	+ Restoring velocity on Unpark 
 * 2016-0908: 0.1.5.3 (dunclaw?) for KSP 1.1.3
 	+ Found a crazy bug on EVA - Auto parking will only occur if you have Parked at least once. 
 * 2016-0908: 0.1.5.2 (dunclaw?) for KSP 1.1.3
