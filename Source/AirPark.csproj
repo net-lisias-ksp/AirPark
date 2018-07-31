@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -25,7 +25,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -39,27 +39,40 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="Assembly-CSharp">
-      <HintPath>..\..\LIB\managed\1.4.1\Assembly-CSharp.dll</HintPath>
+      <HintPath>..\..\..\..\LIB\managed\1.4.1\Assembly-CSharp.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-CSharp-firstpass">
-      <HintPath>..\..\LIB\managed\1.4.1\Assembly-CSharp-firstpass.dll</HintPath>
+      <HintPath>..\..\..\..\LIB\managed\1.4.1\Assembly-CSharp-firstpass.dll</HintPath>
     </Reference>
     <Reference Include="KSPAssets">
-      <HintPath>..\..\LIB\managed\1.4.1\KSPAssets.dll</HintPath>
+      <HintPath>..\..\..\..\LIB\managed\1.4.1\KSPAssets.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>..\..\LIB\managed\1.4.1\UnityEngine.UI.dll</HintPath>
+      <HintPath>..\..\..\..\LIB\managed\1.4.1\UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine">
-      <HintPath>..\..\LIB\managed\1.4.1\UnityEngine.dll</HintPath>
+      <HintPath>..\..\..\..\LIB\managed\1.4.1\UnityEngine.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="LocalDev\7za_dir.txt" />
-    <Content Include="LocalDev\dist_dir.txt" />
-    <Content Include="LocalDev\ksp_dir.txt" />
-    <Content Include="LocalDev\mono_exe.txt" />
-    <Content Include="LocalDev\pdb2mdb_exe.txt" />
+    <Content Include="..\LocalDev\7za_dir.txt">
+      <Link>LocalDev\7za_dir.txt</Link>
+    </Content>
+    <Content Include="..\LocalDev\dist_dir.txt">
+      <Link>LocalDev\dist_dir.txt</Link>
+    </Content>
+    <Content Include="..\LocalDev\ksp_dir.txt">
+      <Link>LocalDev\ksp_dir.txt</Link>
+    </Content>
+    <Content Include="..\LocalDev\mono_exe.txt">
+      <Link>LocalDev\mono_exe.txt</Link>
+    </Content>
+    <Content Include="..\LocalDev\pdb2mdb_exe.txt">
+      <Link>LocalDev\pdb2mdb_exe.txt</Link>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="LocalDev\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="PostBuildMacros">
