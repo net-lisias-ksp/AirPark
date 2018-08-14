@@ -1,10 +1,10 @@
 .vs
 bin
-Source/obj
 Archive
-GameData/AirPark/Plugins/*.dll
+GameData/**/Plugins/*.dll
 GameData/**/CHANGE_LOG.md
 GameData/**/LICENSE
 GameData/**/README.md
 GameData/**/*.version
-Source/Version.cs
+Source/Properties/Version.cs
+Source/obj
