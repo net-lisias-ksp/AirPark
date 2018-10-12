@@ -5,7 +5,7 @@ KSP Mod to land vessel in the atmosphere. Unofficial mod by Lisias.
 ## In a Hurry
 
 * [Latest Release](https://github.com/net-lisias-kspu/AirPark/releases)
-	* [Older Binaries](https://github.com/net-lisias-kspu/AirPark/tree/Archive)
+	* [Binaries](https://github.com/net-lisias-kspu/AirPark/tree/Archive)
 * [Source](https://github.com/net-lisias-kspu/AirPark)
 * [Change Log](./CHANGE_LOG.md)
 
@@ -23,7 +23,7 @@ To install, place the GameData folder inside your Kerbal Space Program folder.
 
 ### Dependencies
 * Hard Dependencies
-<--		* [KSP API Extensions/L](https://github.com/net-lisias-ksp/KSPAPIExtensions) 2.0 or newer -->
+<!--		* [KSP API Extensions/L](https://github.com/net-lisias-ksp/KSPAPIExtensions) 2.0 or newer -->
 
 ### Licensing
 This work is licensed under the [GPL 2.0](https://www.gnu.org/licenses/gpl-2.0.txt). See [here](./LICENSE)
