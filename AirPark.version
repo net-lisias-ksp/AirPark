@@ -1,14 +1,14 @@
 {
-	"NAME":"AirPark",
-	"URL":"https://github.com/net-lisias-ksp/AirPark/AirPark.version",
-	"DOWNLOAD":"https://github.com/net-lisias-ksp/AirPark/releases"
-	"CHANGE_LOG":"https://github.com/net-lisias-ksp/AirPark/CHANGE_LOG.md"
-	"CHANGE_LOG_URL":"https://github.com/net-lisias-ksp/AirPark/CHANGES.md"
 	"GITHUB":{
 		"USERNAME":"net-lisias-kspu",
 		"REPOSITORY":"Airpark",
 		"ALLOW_PRE_RELEASE":false
 		},
+	"NAME"		: "AirPark",
+	"URL"		: "https://github.com/net-lisias-ksp/AirPark/AirPark.version",
+	"DOWNLOAD"	: "https://github.com/net-lisias-ksp/AirPark/releases",
+	"CHANGE_LOG"	: "https://github.com/net-lisias-ksp/AirPark/CHANGE_LOG.md",
+	"CHANGE_LOG_URL":"https://github.com/net-lisias-ksp/AirPark/CHANGES.md",
 	"VERSION":{
 		"MAJOR":0,
 		"MINOR":1,
