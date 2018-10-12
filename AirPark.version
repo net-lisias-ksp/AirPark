@@ -1,9 +1,4 @@
 {
-	"GITHUB":{
-		"USERNAME":"net-lisias-kspu",
-		"REPOSITORY":"Airpark",
-		"ALLOW_PRE_RELEASE":false
-		},
 	"NAME"		: "AirPark",
 	"URL"		: "https://github.com/net-lisias-ksp/AirPark/AirPark.version",
 	"DOWNLOAD"	: "https://github.com/net-lisias-ksp/AirPark/releases",
@@ -17,8 +12,7 @@
 		},
 	"KSP_VERSION":{
 		"MAJOR":1,
-		"MINOR":4,
-		"PATCH":1
+		"MINOR":4
 		},
 	"KSP_VERSION_MIN":{
 		"MAJOR":1,
