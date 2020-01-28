@@ -7,6 +7,7 @@ using KSP.UI.Screens;
 
 namespace AirPark
 {
+    using Asset = KSPe.IO.Asset<Startup>;
     
     [KSPAddon(KSPAddon.Startup.Flight, false)]
     class AirParkToolbar : MonoBehaviour
@@ -124,7 +125,7 @@ namespace AirPark
             {
                 if (!hasAddedButton)
                 {
-                    Texture buttonTexture = GameDatabase.Instance.GetTexture("AirPark/Icon/AirPark", false);
+                    Texture buttonTexture = Asset.Texture2D.LoadFromFile("Icon", "AirPark");
                     ApplicationLauncher.Instance.AddModApplication(ShowToolbarGUI, HideToolbarGUI, Dummy, Dummy, Dummy, Dummy, ApplicationLauncher.AppScenes.FLIGHT, buttonTexture);
                     hasAddedButton = true;
                 }
