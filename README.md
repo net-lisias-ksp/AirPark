@@ -1,13 +1,18 @@
-# AirPark Unofficial 
+# AirPark /L Unofficial 
 
-KSP Mod to land vessel in the atmosphere. Unofficial mod by Lisias.
+KSP Mod to land vessel in the atmosphere. Unofficial fork by Lisias.
+
 
 ## In a Hurry
 
 * [Latest Release](https://github.com/net-lisias-kspu/AirPark/releases)
 	* [Binaries](https://github.com/net-lisias-kspu/AirPark/tree/Archive)
 * [Source](https://github.com/net-lisias-kspu/AirPark)
-* [Change Log](./CHANGE_LOG.md)
+* Documentation
+	+ [Project's README](https://github.com/net-lisias-ksp/TweakScale/blob/master/README.md)
+	+ [Install Instructions](https://github.com/net-lisias-ksp/TweakScale/blob/master/INSTALL.md)
+	+ [Change Log](./CHANGE_LOG.md)
+	+ [Known Issues](./KNOWN_ISSUES.md)
 
 
 ## Description
@@ -17,13 +22,7 @@ Attach the airpark part located under the command and control tab to use. Toggle
 
 ## Installation
 
-To install, place the GameData folder inside your Kerbal Space Program folder.
-
-**REMOVE ANY OLD VERSIONS OF THE PRODUCT BEFORE INSTALLING**.
-
-### Dependencies
-* Hard Dependencies
-<!--		* [KSP API Extensions/L](https://github.com/net-lisias-ksp/KSPAPIExtensions) 2.0 or newer -->
+Detailed installation instructions are now on its own file (see the [In a Hurry](#in-a-hurry) section) and on the distribution file.
 
 ### Licensing
 This work is licensed under the [GPL 2.0](https://www.gnu.org/licenses/gpl-2.0.txt). See [here](./LICENSE)
@@ -39,6 +38,8 @@ This work is licensed under the [GPL 2.0](https://www.gnu.org/licenses/gpl-2.0.t
 	- You credit the author and republish the copyright notices on your works where the code is used.
 	- You relicense (and fully comply) your works using GPL 2.0 (or later)
 	- You don't mix your work with GPL incompatible works.
+
+See [NOTICE](./NOTICE) for further copyright and trademarks notices.
 
 
 ## UPSTREAM
