@@ -5,23 +5,14 @@
 	"CHANGE_LOG"	: "https://github.com/net-lisias-ksp/AirPark/CHANGE_LOG.md",
 	"CHANGE_LOG_URL":"https://github.com/net-lisias-ksp/AirPark/CHANGES.md",
 	"VERSION":{
-		"MAJOR":0,
-		"MINOR":1,
-		"PATCH":6,
-		"BUILD":1
-		},
-	"KSP_VERSION":{
 		"MAJOR":1,
-		"MINOR":4
+		"MINOR":7,
+		"PATCH":0,
+		"BUILD":6
 		},
 	"KSP_VERSION_MIN":{
 		"MAJOR":1,
 		"MINOR":4,
 		"PATCH":1
-		},
-	"KSP_VERSION_MAX":{
-		"MAJOR":1,
-		"MINOR":4,
-		"PATCH":9
 		}
 }

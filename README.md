@@ -9,8 +9,8 @@ KSP Mod to land vessel in the atmosphere. Unofficial fork by Lisias.
 	* [Binaries](https://github.com/net-lisias-kspu/AirPark/tree/Archive)
 * [Source](https://github.com/net-lisias-kspu/AirPark)
 * Documentation
-	+ [Project's README](https://github.com/net-lisias-ksp/TweakScale/blob/master/README.md)
-	+ [Install Instructions](https://github.com/net-lisias-ksp/TweakScale/blob/master/INSTALL.md)
+	+ [Project's README](https://github.com/net-lisias-kspu/AirPark/blob/master/README.md)
+	+ [Install Instructions](https://github.com/net-lisias-kspu/AirPark/blob/master/INSTALL.md)
 	+ [Change Log](./CHANGE_LOG.md)
 	+ [Known Issues](./KNOWN_ISSUES.md)
 

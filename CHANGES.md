@@ -1,4 +1,6 @@
 # AirPark :: Changes
 
-* 2017-1124 0.1.6.2 (gomker) for KSP 1.3.1
-	+ Recompile for 1.3.1
+* 2020-0128 1.7.0.6 (Lisias) for KSP >= 1.4
+	+ Updating KSPe API usage to the latest
+		+ Addin instalment check and abstract file system facilities 
+	+ Version bumping to catch up to upstream
