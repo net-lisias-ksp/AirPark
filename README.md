@@ -50,4 +50,5 @@ This work is licensed under the [GPL 2.0](https://www.gnu.org/licenses/gpl-2.0.t
 * [dunclaw](https://forum.kerbalspaceprogram.com/index.php?/profile/151301-dunclaw/) (Parent)
 	+ [GitHub](https://github.com/dunclaw/AirPark)
 * [SmellyBootRash](https://forum.kerbalspaceprogram.com/index.php?/profile/152610-smelly/) (Root)
+	+ [Forum](https://forum.kerbalspaceprogram.com/index.php?/topic/123669-104-airpark/&tab=comments#comment-2242372)
 	+ [GitHub](https://github.com/SmellyBootRash/AirPark)
