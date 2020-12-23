@@ -1,9 +1,20 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirPark", "AirPark.csproj", "{CE65B754-B3DE-4DE6-B369-C56138017965}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirPark", "Source\AirPark.csproj", "{CE65B754-B3DE-4DE6-B369-C56138017965}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C89DDA7F-9612-4450-83E4-AED8192F9BA0}"
+	ProjectSection(SolutionItems) = preProject
+		AirPark.version = AirPark.version
+		buildRelease.bat = buildRelease.bat
+		ChangeLog.txt = ChangeLog.txt
+		deploy.bat = deploy.bat
+		jenkins.txt = jenkins.txt
+		LICENSE.md = LICENSE.md
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,5 +29,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D04D1D4F-0F8B-4C73-8C9B-D496A59B3F32}
 	EndGlobalSection
 EndGlobal

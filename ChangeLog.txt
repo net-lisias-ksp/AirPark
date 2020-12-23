@@ -1,0 +1,11 @@
+Change Log
+
+1.7.1 (unreleased)
+	Updated for KSP 1.10.1
+	Added AssemblyVersion.tt
+	Added InstallChecker
+	Converted from stock toolbar to ToolbarController
+	Added support for ClickThroughBlocker
+	Made window draggable
+	Enabled toolbar button to change color when autopark is enabled
+	Changed control to a VesselModule, so no need for the AirPark part
