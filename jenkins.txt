@@ -35,8 +35,8 @@
 
 # 3:SOURCEFILE, DESTDIR
 3:AirPark.version,GameData/AirPark
-3:LICENSE.md,GameData/KerbalHotSeat
-3:README.md,GameData/KerbalHotSeat
+3:LICENSE.md,GameData/AirPark
+3:README.md,GameData/AirPark
 
 # 4:SOURCDIR, DESTDIR
 #4:Textures,GameData/ManeuverQueue/Textures
